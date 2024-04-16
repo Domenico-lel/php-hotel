@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
+    <title>Document</title>
 </head>
+
 <body>
 
     <?php
 
     $hotels = [
+
         [
             'name' => 'Hotel Belvedere',
             'description' => 'Hotel Belvedere Descrizione',
@@ -43,22 +46,42 @@
             'description' => 'Hotel Milano Descrizione',
             'parking' => true,
             'vote' => 2,
-            'distance_to_center' => 50
+            'distance_to_center' => 50,
         ],
+
     ];
 
-    // Itera attraverso gli hotel e stampa le informazioni
-    foreach ($hotels as $hotel) {
-        echo "Nome: " . $hotel['name'] . "<br>";
-        echo "Descrizione: " . $hotel['description'] . "<br>";
-        echo "Parcheggio: " . ($hotel['parking'] ? 'Disponibile' : 'Non disponibile') . "<br>";
-        echo "Voto: " . $hotel['vote'] . "<br>";
-        echo "Distanza dal centro: " . $hotel['distance_to_center'] . " km<br>";
-        echo "<hr>";
+    echo '<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Parking</th>
+        <th scope="col">Vote</th>
+        <th scope="col">Distance to center</th>
+      </tr>
+    </thead>
+    </table>';
+
+    foreach ($hotels as $key => $hotel) {
+        echo "
+            <table class='table'>
+                <tbody>
+                    <tr>
+                        <th scope='row'>$key</th>
+                        <td>$hotel[name] </td>
+                        <td>$hotel[description] </td>
+                        <td>$hotel[parking] </td>
+                        <td>$hotel[vote] </td>
+                        <td>$hotel[distance_to_center] </td>
+                    </tr>
+                </tbody>
+            </table>";
     }
 
     ?>
 
-    
 </body>
+
 </html>
